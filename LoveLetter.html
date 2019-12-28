@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html class="js" lang="zh">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="LoveLetter向TA表白，在一起吧">
+	<title>❤ Love Letter</title>
+	<link rel="stylesheet" type="text/css" href="css/base.css">
+	<link rel="stylesheet" type="text/css" href="css/uncover.css">
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/audio_script.js"></script>
+	<script src="js/imagesloaded.js"></script>
+	<script src="js/anime.js"></script>
+	<script src="js/uncover.js"></script>
+	<script src="js/demo1.js"></script>
+	<script>
+		document.documentElement.className = "js";
+		var supportsCssVars = function() { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e };
+		supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
+	</script>
+	<style type="text/css">
+		body{
+			background: #F17872;
+			font-family: "微软雅黑";
+		}
+		.slide .caption{
+			position: absolute;
+			right: 23%;
+			top: 13%;
+			z-index: 9;
+		}
+		.slide .caption h2{
+			font-size: 50px;
+			line-height: 90px;
+			color: #fff;
+			text-align: center;
+		}
+		.slide .caption h3{
+			color: #333;
+			font-size: 30px;
+			line-height: 70px;
+			text-align: right;
+		}
+		.slide .caption h4{
+			font-size: 18px;
+			color: #f07a58;
+			font-weight: 500;
+			line-height: 50px;
+			text-align: right;
+		}
+		
+		.slide h2{
+			margin-right: 45px;
+		}
+		.slide h3,
+		.slide h4{
+			margin-right: -45px;
+		}
+		.slide h2,
+		.slide h3,
+		.slide h4{
+			-webkit-transition: all 2s 1s;
+			opacity: 0;
+		}
+		.caption{
+		}
+		.slide--current h2,
+		.slide--current h3,
+		.slide--current h4{
+			margin-right: 0;
+			opacity: 1;
+		}
+		.slide--current h2{
+			border: 1px #fff solid;
+			width: 250px;
+			text-align: center;
+			margin-left: 250px;
+			background: rgba(0,0,0,.1);
+		}
+		.slide--current h3{
+			background: rgba(255,255,255,.1);
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+		.codrops-header{
+			position: absolute;
+			top: 3%;
+			margin:0 auto;
+		}
+		.pagination{
+			position: absolute;
+			bottom: 20px;
+			margin:0 auto;
+		}
+		.pagination__item {
+			color: #fff;
+			margin: 0 0 0 2.25rem;
+			font-size: 1.5em;
+		}
+		.pagination__item--current{
+			color: #F17872;
+			font-size: 2.0em;
+		}
+		@keyframes word_rotate1{
+			0%{transform:rotate(-10deg) scale(1.0);}
+			50%{transform:rotate(10deg) scale(1.2);}
+			100%{transform:rotate(-10deg) scale(1.0);}
+		}
+		@-webkit-keyframes word_rotate1{
+			0%{transform:rotate(-10deg) scale(1.0);}
+			50%{transform:rotate(10deg) scale(1.2);}
+			100%{transform:rotate(-10deg) scale(1.0);}
+		}
+		@-moz-keyframes word_rotate1{
+			0%{transform:rotate(-10deg) scale(1.0);}
+			50%{transform:rotate(10deg) scale(1.2);}
+			100%{transform:rotate(-10deg) scale(1.0);}
+		}
+		@-ms-keyframes word_rotate1{
+			0%{transform:rotate(-10deg) scale(1.0);}
+			50%{transform:rotate(10deg) scale(1.2);}
+			100%{transform:rotate(-10deg) scale(1.0);}
+		}
+		
+		@keyframes word_rotate2{
+			0%{transform:rotate(10deg) scale(1.2);}
+			50%{transform:rotate(-10deg) scale(1.0);}
+			100%{transform:rotate(10deg) scale(1.2);}
+		}
+		@-webkit-keyframes word_rotate2{
+			0%{transform:rotate(10deg) scale(1.2);}
+			50%{transform:rotate(-10deg) scale(1.0);}
+			100%{transform:rotate(10deg) scale(1.2);}
+		}
+		@-moz-keyframes word_rotate2{
+			0%{transform:rotate(10deg) scale(1.2);}
+			50%{transform:rotate(-10deg) scale(1.0);}
+			100%{transform:rotate(10deg) scale(1.2);}
+		}
+		@-ms-keyframes word_rotate2{
+			0%{transform:rotate(10deg) scale(1.2);}
+			50%{transform:rotate(-10deg) scale(1.0);}
+			100%{transform:rotate(10deg) scale(1.2);}
+		}
+		
+		a.demo{
+			float: left;
+			color: #fff;
+			display: block;
+			font-size: 20px;
+			margin-right: 20px;
+			animation: word_rotate2 5s infinite 0s linear;
+		}
+		a.demo--current{
+			float: left;
+			color: #F17872;
+			display: block;
+			font-size: 20px;
+			animation: word_rotate1 5s infinite 0s linear;
+		}
+	</style>
+</head>
+<body class="demo-1">
+	<audio id="audio" src=""  loop="" autoplay="autoplay"></audio>
+	<main>
+		<div class="content content--fixed">
+			<header class="codrops-header">
+				<nav class="demos">
+					<a class="demo"><span>My darling</span></a>
+					<a class="demo demo--current"><span>她 的 名 字</span></a>
+				</nav>
+			</header>
+			<nav class="pagination">
+				<span class="pagination__item pagination__item--current">我</span>
+				<span class="pagination__item">喜</span>
+				<span class="pagination__item">欢</span>
+				<span class="pagination__item">你</span>
+				<span class="pagination__item">❤</span>
+			</nav>
+		</div>
+		<div class="slides">
+			<div class="slide slide--current">
+				<div class="caption">
+					<h3>跟你在一起的时光都很</h3>
+					<h2>耀 眼</h2>
+					<h4>因为天气好 因为天气不好<br />
+						因为天气刚刚好<br />
+						每一天 都很美好</h4>
+				</div>
+				<div class="slide__img uncover" style="background-image: url(images/584771f6b855c.jpg);"><div class="uncover__img" style="background-image: url(&quot;imagesh4/584771f6b855c.jpg&quot;); transform: scale(1);"></div>
+                <div class="uncover__slices uncover__slices--vertical"><div class="uncover__slice" style="color: rgb(17, 17, 17); transform: translateX(0%) translateY(-100%);"></div><div class="uncover__slice" style="color: rgb(17, 17, 17); transform: translateX(0%) translateY(-100%);"></div><div class="uncover__slice" style="color: rgb(17, 17, 17); transform: translateX(0%) translateY(-100%);"></div><div class="uncover__slice" style="color: rgb(17, 17, 17); transform: translateX(0%) translateY(-100%);"></div></div></div>
+			</div>
+			<div class="slide">
+				<div class="caption">
+					<h3>此生遇见你</h3>
+					<h2>无与伦比</h2>
+					<h4>化成雨 化成初雪<br />
+						我会祈求神 让我化成这些<br />
+						去陪在你身边</h4>
+				</div>
+				<div class="slide__img uncover" style="background-image: url(images/585de691412cd.jpg);"><div class="uncover__img" style="background-image: url(&quot;imagesh4/585de691412cd.jpg&quot;)"></div>
+                <div class="uncover__slices uncover__slices--horizontal"><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div></div></div>
+			</div>
+			<div class="slide">
+				<div class="caption">
+					<h3>不要再召唤我了 因为我会</h3>
+					<h2>一 直</h2>
+					<h4>在你身边<br />
+						所以一直牵着手吧</h4>
+				</div>
+				<div class="slide__img uncover" style="background-image: url(images/584a78aed38a8.jpg);"><div class="uncover__img" style="background-image: url(&quot;imagesh4/584a78aed38a8.jpg&quot;)"></div>
+                <div class="uncover__slices uncover__slices--vertical"><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div></div></div>
+			</div>
+			<div class="slide">
+				<div class="caption">
+					<h3>有你陪伴的日子里 阳光永远都那么</h3>
+					<h2>灿 烂</h2>
+					<h4>像是你的声音<br />
+						像是你的温度<br />
+						又像是你的一颦一笑</h4>
+				</div>
+				<div class="slide__img uncover" style="background-image: url(images/28a39144.jpg);"><div class="uncover__img" style="background-image: url(&quot;imagesh4/28a39144.jpg&quot;)"></div>
+                <div class="uncover__slices uncover__slices--horizontal"><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div></div></div>
+			</div>
+			<div class="slide">
+				<div class="caption">
+					<h3>My girl 就请你和我</h3>
+					<h2>在一起吧</h2>
+					<h4>我未来的人生里<br />
+						希望有你 参与其中</h4>
+				</div>
+				<div class="slide__img uncover" style="background-image: url(images/58707f0c3be55.jpg);"><div class="uncover__img" style="background-image: url(&quot;imagesh4/58707f0c3be55.jpg&quot;)"></div>
+                <div class="uncover__slices uncover__slices--vertical"><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div><div class="uncover__slice" style="color:#111"></div></div></div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>
